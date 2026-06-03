@@ -1,0 +1,13 @@
+name: my-custom-redis-group
+
+services:
+  my-redis:
+    build:
+      context: .               # 현재 폴더를 기준점으로 설정
+      dockerfile: redis.dockerfile  # 사용할 도커 파일명 지정
+    container_name: my-redis-app
+    ports:
+      - "6379:6379"
+    restart: always
+
+  # docker compose up -d --build // 설정파일 변경사항 있었을 때, 도커 이미지 재 빌드
